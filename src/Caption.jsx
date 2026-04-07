@@ -1,40 +1,65 @@
 export const Caption = ({ captions, currentFrame, fps }) => {
-  if (!captions || captions.length === 0) return null;
-
+  const safeCaptions = captions ?? [];
   const currentTime = currentFrame / fps;
 
   const chunks = [];
-  for (let i = 0; i < captions.length; i += 5) {
-    chunks.push(captions.slice(i, i + 5));
+  for (let i = 0; i < safeCaptions.length; i += 9) {
+    chunks.push(safeCaptions.slice(i, i + 9));
   }
 
-  const activeChunk = chunks.find((chunk) => {
+  // Each chunk stays visible until the next chunk's first word starts,
+  // so there are never any blank gaps between groups.
+  const activeChunk = chunks.find((chunk, idx) => {
     const start = chunk[0].start;
-    const end = chunk[chunk.length - 1].end;
-    return currentTime >= start && currentTime <= end;
+    const end =
+      idx + 1 < chunks.length
+        ? chunks[idx + 1][0].start
+        : chunk[chunk.length - 1].end + 1;
+    return currentTime >= start && currentTime < end;
   });
 
   if (!activeChunk) return null;
+
+  const chunkText = activeChunk.map((w) => w.word).join(" ").toLowerCase();
+  const displayText = chunkText.charAt(0).toUpperCase() + chunkText.slice(1);
 
   return (
     <div
       style={{
         position: "absolute",
-        top: "12%",
+        bottom: "15%",
+        left: 0,
+        right: 0,
         width: "100%",
         textAlign: "center",
-        fontSize: 38,
-        fontFamily: "Arial Black, sans-serif",
-        color: "white",
-        WebkitTextStroke: "3px black",
-        paintOrder: "stroke fill",
         padding: "0 20px",
-        lineHeight: 1.2,
-        fontWeight: 900,
-        textTransform: "uppercase",
+        pointerEvents: "none",
       }}
     >
-      {activeChunk.map((w) => w.word).join(" ")}
+      <div
+        style={{
+          fontSize: 20,
+          fontFamily: "'Helvetica Neue', Arial, sans-serif",
+          fontWeight: 600,
+          color: "white",
+          lineHeight: 1.35,
+          maxWidth: "72%",
+          margin: "0 auto",
+          whiteSpace: "normal",
+          overflow: "hidden",
+          display: "-webkit-box",
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: "vertical",
+          textShadow: `
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000
+          `,
+        }}
+      >
+        {displayText}
+      </div>
     </div>
   );
 };

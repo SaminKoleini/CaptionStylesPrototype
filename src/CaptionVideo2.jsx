@@ -1,8 +1,8 @@
 import { Player } from "@remotion/player";
 import { AbsoluteFill, Video, useCurrentFrame, useVideoConfig } from "remotion";
-import { Caption } from "./Caption";
+import { Caption2 } from "./Caption2";
 
-const VideoWithCaptions = ({ videoSrc, captions }) => {
+const VideoWithCaptions2 = ({ videoSrc, captions }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -14,27 +14,28 @@ const VideoWithCaptions = ({ videoSrc, captions }) => {
         volume={1}
         muted={false}
       />
-      <Caption captions={captions} currentFrame={frame} fps={fps} />
+      <Caption2 captions={captions} currentFrame={frame} fps={fps} />
     </AbsoluteFill>
   );
 };
 
-export const CaptionVideoPlayer = ({ videoSrc, captions, durationInFrames }) => {
+export const CaptionVideoPlayer2 = ({ videoSrc, captions, durationInFrames }) => {
   return (
     <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
       <Player
-        component={VideoWithCaptions}
+        component={VideoWithCaptions2}
         inputProps={{ videoSrc, captions }}
         durationInFrames={durationInFrames}
         fps={30}
-        compositionWidth={390}
-        compositionHeight={844}
+        compositionWidth={1280}
+        compositionHeight={720}
         style={{
-          width: "390px",
-          height: "844px",
+          width: "800px",
+          height: "450px",
           border: "2px solid #333",
           borderRadius: "8px",
           overflow: "hidden",
+          maxWidth: "100%",
         }}
         controls
       />
