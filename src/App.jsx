@@ -11,6 +11,8 @@ import { exportVideoWithCaptions, exportVideoWithCaptions2, exportVideoWithCapti
 import { clusterWords, extractClusterFrames } from "./captionHelpers5";
 import "./App.css";
 
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "http://localhost:3001").replace(/\/+$/, "");
+
 function App() {
   const [videoFile, setVideoFile] = useState(null);
   const [apiKey, setApiKey] = useState("");
@@ -182,7 +184,7 @@ function App() {
       formData.append("video", videoFile);
       formData.append("apiKey", apiKey);
 
-      const res = await fetch("http://localhost:3001/transcribe", {
+      const res = await fetch(API_BASE_URL + "/transcribe", {
         method: "POST",
         body: formData,
       });
@@ -247,7 +249,7 @@ function App() {
       formData.append("video", videoFile2);
       formData.append("apiKey", apiKey);
 
-      const res = await fetch("http://localhost:3001/transcribe", {
+      const res = await fetch(API_BASE_URL + "/transcribe", {
         method: "POST",
         body: formData,
       });
@@ -338,7 +340,7 @@ function App() {
       formData.append("video", videoFile3);
       formData.append("apiKey", apiKey);
 
-      const transcribeRes = await fetch("http://localhost:3001/transcribe", {
+      const transcribeRes = await fetch(API_BASE_URL + "/transcribe", {
         method: "POST",
         body: formData,
       });
@@ -361,7 +363,7 @@ function App() {
       // Step 2: generate editorial title from transcript
       const transcriptText = words.map((w) => w.word).join(" ");
       try {
-        const titleRes = await fetch("http://localhost:3001/generate-title", {
+        const titleRes = await fetch(API_BASE_URL + "/generate-title", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ transcriptText, apiKey }),
@@ -436,7 +438,7 @@ function App() {
       const formData = new FormData();
       formData.append("video", videoFile4);
       formData.append("apiKey", apiKey);
-      const res = await fetch("http://localhost:3001/transcribe", { method: "POST", body: formData });
+      const res = await fetch(API_BASE_URL + "/transcribe", { method: "POST", body: formData });
       if (!res.ok) {
         const errorData = await res.json();
         setError4(errorData.error || "Transcription failed");
@@ -527,7 +529,7 @@ function App() {
       formData.append("video", videoFile5);
       formData.append("apiKey", apiKey);
 
-      const res = await fetch("http://localhost:3001/transcribe", {
+      const res = await fetch(API_BASE_URL + "/transcribe", {
         method: "POST",
         body: formData,
       });
@@ -579,7 +581,7 @@ function App() {
         frameDataUrl: frames[i] ?? null,
       }));
 
-      const res = await fetch("http://localhost:3001/analyze-spatial-layout", {
+      const res = await fetch(API_BASE_URL + "/analyze-spatial-layout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ apiKey, clusters: payload }),
@@ -665,7 +667,7 @@ function App() {
       const formData = new FormData();
       formData.append("video", videoFile7);
       formData.append("apiKey", apiKey);
-      const res = await fetch("http://localhost:3001/transcribe", {
+      const res = await fetch(API_BASE_URL + "/transcribe", {
         method: "POST",
         body: formData,
       });
@@ -743,7 +745,7 @@ function App() {
       const formData = new FormData();
       formData.append("video", videoFile6);
       formData.append("apiKey", apiKey);
-      const res = await fetch("http://localhost:3001/transcribe", {
+      const res = await fetch(API_BASE_URL + "/transcribe", {
         method: "POST",
         body: formData,
       });
@@ -821,7 +823,7 @@ function App() {
       const formData = new FormData();
       formData.append("video", videoFile8);
       formData.append("apiKey", apiKey);
-      const res = await fetch("http://localhost:3001/transcribe", {
+      const res = await fetch(API_BASE_URL + "/transcribe", {
         method: "POST",
         body: formData,
       });
