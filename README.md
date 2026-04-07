@@ -133,3 +133,4 @@ MIT
 ## Credits
 
 Built with React, Vite, Remotion, and OpenAI Whisper API.
+# Deployment fix
