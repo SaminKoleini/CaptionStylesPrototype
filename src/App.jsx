@@ -7,6 +7,13 @@ import { CaptionVideoPlayer5 } from "./CaptionVideo5";
 import { CaptionVideoPlayer6 } from "./CaptionVideo6";
 import { CaptionVideoPlayer7 } from "./CaptionVideo7";
 import { CaptionVideoPlayer8 } from "./CaptionVideo8";
+import { CaptionVideo9Player } from "./CaptionVideo9";
+import { CaptionVideo10Player } from "./CaptionVideo10";
+import { CaptionVideo11Player } from "./CaptionVideo11";
+import { CaptionVideo12Player } from "./CaptionVideo12";
+import { CaptionVideo13Player } from "./CaptionVideo13";
+import { CaptionVideo14Player } from "./CaptionVideo14";
+import { CaptionVideo15Player } from "./CaptionVideo15";
 import { exportVideoWithCaptions, exportVideoWithCaptions2, exportVideoWithCaptions3, exportVideoWithCaptions4 } from "./videoExport";
 import { clusterWords, extractClusterFrames } from "./captionHelpers5";
 import "./App.css";
@@ -85,6 +92,85 @@ function App() {
   const [exportProgress8, setExportProgress8] = useState(0);
   const lastSelectedUrl8Ref = useRef(null);
 
+  // Section 10 state
+  const [videoFile10, setVideoFile10] = useState(null);
+  const [videoUrl10, setVideoUrl10] = useState(null);
+  const [videoDuration10, setVideoDuration10] = useState(0);
+  const [captions10, setCaptions10] = useState(null);
+  const [loading10, setLoading10] = useState(false);
+  const [error10, setError10] = useState(null);
+  const [exporting10, setExporting10] = useState(false);
+  const [exportProgress10, setExportProgress10] = useState(0);
+  const lastSelectedUrl10Ref = useRef(null);
+
+  // Section 11 state
+  const [videoFile11, setVideoFile11] = useState(null);
+  const [videoUrl11, setVideoUrl11] = useState(null);
+  const [videoDuration11, setVideoDuration11] = useState(0);
+  const [captions11, setCaptions11] = useState(null);
+  const [loading11, setLoading11] = useState(false);
+  const [error11, setError11] = useState(null);
+  const [exporting11, setExporting11] = useState(false);
+  const [exportProgress11, setExportProgress11] = useState(0);
+  const lastSelectedUrl11Ref = useRef(null);
+
+  // Section 12 state
+  const [videoFile12, setVideoFile12] = useState(null);
+  const [videoUrl12, setVideoUrl12] = useState(null);
+  const [videoDuration12, setVideoDuration12] = useState(0);
+  const [captions12, setCaptions12] = useState(null);
+  const [loading12, setLoading12] = useState(false);
+  const [error12, setError12] = useState(null);
+  const [exporting12, setExporting12] = useState(false);
+  const [exportProgress12, setExportProgress12] = useState(0);
+  const [speakerFaceBox12, setSpeakerFaceBox12] = useState(null);
+  const [speakerSubjectBox12, setSpeakerSubjectBox12] = useState(null);
+  const lastSelectedUrl12Ref = useRef(null);
+
+  // Section 13 state
+  const [videoFile13, setVideoFile13] = useState(null);
+  const [videoUrl13, setVideoUrl13] = useState(null);
+  const [videoDuration13, setVideoDuration13] = useState(0);
+  const [captions13, setCaptions13] = useState(null);
+  const [loading13, setLoading13] = useState(false);
+  const [error13, setError13] = useState(null);
+  const [exporting13, setExporting13] = useState(false);
+  const [exportProgress13, setExportProgress13] = useState(0);
+  const lastSelectedUrl13Ref = useRef(null);
+
+  // Section 14 state
+  const [videoFile14, setVideoFile14] = useState(null);
+  const [videoUrl14, setVideoUrl14] = useState(null);
+  const [videoDuration14, setVideoDuration14] = useState(0);
+  const [captions14, setCaptions14] = useState(null);
+  const [loading14, setLoading14] = useState(false);
+  const [error14, setError14] = useState(null);
+  const [exporting14, setExporting14] = useState(false);
+  const [exportProgress14, setExportProgress14] = useState(0);
+  const lastSelectedUrl14Ref = useRef(null);
+
+  // Section 15 state
+  const [videoFile15, setVideoFile15] = useState(null);
+  const [videoUrl15, setVideoUrl15] = useState(null);
+  const [videoDuration15, setVideoDuration15] = useState(0);
+  const [captions15, setCaptions15] = useState(null);
+  const [loading15, setLoading15] = useState(false);
+  const [error15, setError15] = useState(null);
+  const [exporting15, setExporting15] = useState(false);
+  const [exportProgress15, setExportProgress15] = useState(0);
+  const lastSelectedUrl15Ref = useRef(null);
+
+  // Section 9 state
+  const [videoFile9, setVideoFile9] = useState(null);
+  const [videoUrl9, setVideoUrl9] = useState(null);
+  const [videoDuration9, setVideoDuration9] = useState(0);
+  const [captions9, setCaptions9] = useState(null);
+  const [loading9, setLoading9] = useState(false);
+  const [error9, setError9] = useState(null);
+  const [exporting9, setExporting9] = useState(false);
+  const [exportProgress9, setExportProgress9] = useState(0);
+  const lastSelectedUrl9Ref = useRef(null);
+
   // Section 6 state
   const [videoFile6, setVideoFile6] = useState(null);
   const [videoUrl6, setVideoUrl6] = useState(null);
@@ -143,6 +229,17 @@ function App() {
       if (lastSelectedUrl8Ref.current) {
         URL.revokeObjectURL(lastSelectedUrl8Ref.current);
       }
+      if (lastSelectedUrl9Ref.current) {
+        URL.revokeObjectURL(lastSelectedUrl9Ref.current);
+      }
+      if (lastSelectedUrl10Ref.current) {
+        URL.revokeObjectURL(lastSelectedUrl10Ref.current);
+      }
+      if (lastSelectedUrl11Ref.current) URL.revokeObjectURL(lastSelectedUrl11Ref.current);
+      if (lastSelectedUrl12Ref.current) URL.revokeObjectURL(lastSelectedUrl12Ref.current);
+      if (lastSelectedUrl13Ref.current) URL.revokeObjectURL(lastSelectedUrl13Ref.current);
+      if (lastSelectedUrl14Ref.current) URL.revokeObjectURL(lastSelectedUrl14Ref.current);
+      if (lastSelectedUrl15Ref.current) URL.revokeObjectURL(lastSelectedUrl15Ref.current);
     };
   }, []);
 
@@ -870,6 +967,402 @@ function App() {
     }
   };
 
+  // ─── Section 10 handlers ───────────────────────────────────────────────────
+
+  const handleVideoChange10 = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (lastSelectedUrl10Ref.current) URL.revokeObjectURL(lastSelectedUrl10Ref.current);
+      setVideoFile10(file);
+      setError10(null);
+      setCaptions10(null);
+      const url = URL.createObjectURL(file);
+      setVideoUrl10(url);
+      lastSelectedUrl10Ref.current = url;
+      const video = document.createElement("video");
+      video.preload = "metadata";
+      video.onloadedmetadata = () => setVideoDuration10(video.duration);
+      video.src = url;
+    }
+  };
+
+  const handleSubmit10 = async () => {
+    if (!videoFile10 || !apiKey) {
+      setError10("Please upload a video and enter your API key");
+      return;
+    }
+    setLoading10(true);
+    setError10(null);
+    setCaptions10(null);
+    try {
+      const formData = new FormData();
+      formData.append("video", videoFile10);
+      formData.append("apiKey", apiKey);
+      const res = await fetch(API_BASE_URL + "/transcribe", {
+        method: "POST",
+        body: formData,
+      });
+      if (!res.ok) {
+        const d = await res.json();
+        setError10(d.error || "Transcription failed");
+        return;
+      }
+      const words = await res.json();
+      if (!words?.length) {
+        setError10("No transcription data received.");
+        return;
+      }
+      setCaptions10(words);
+    } catch (err) {
+      setError10(err.message || "Failed to transcribe video.");
+    } finally {
+      setLoading10(false);
+    }
+  };
+
+  const handleDownload10 = async () => {
+    if (!videoUrl10 || !videoFile10 || !captions10) return;
+    setExporting10(true);
+    setExportProgress10(0);
+    try {
+      const { exportStaircaseImpact } = await import("./videoExport");
+      const outputUrl = await exportStaircaseImpact(
+        videoUrl10,
+        captions10,
+        (pct) => setExportProgress10(pct)
+      );
+      const baseName = videoFile10.name.replace(/\.[^/.]+$/, "");
+      const a = document.createElement("a");
+      a.href = outputUrl;
+      a.download = `${baseName}_sketchbook.webm`;
+      a.click();
+      URL.revokeObjectURL(outputUrl);
+    } catch (err) {
+      setError10("Export failed: " + err.message);
+    } finally {
+      setExporting10(false);
+      setExportProgress10(0);
+    }
+  };
+
+  // ─── Section 9 handlers ────────────────────────────────────────────────────
+
+  const handleVideoChange9 = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (lastSelectedUrl9Ref.current) URL.revokeObjectURL(lastSelectedUrl9Ref.current);
+      setVideoFile9(file);
+      setError9(null);
+      setCaptions9(null);
+      const url = URL.createObjectURL(file);
+      setVideoUrl9(url);
+      lastSelectedUrl9Ref.current = url;
+      const video = document.createElement("video");
+      video.preload = "metadata";
+      video.onloadedmetadata = () => setVideoDuration9(video.duration);
+      video.src = url;
+    }
+  };
+
+  const handleSubmit9 = async () => {
+    if (!videoFile9 || !apiKey) {
+      setError9("Please upload a video and enter your API key");
+      return;
+    }
+    setLoading9(true);
+    setError9(null);
+    setCaptions9(null);
+    try {
+      const formData = new FormData();
+      formData.append("video", videoFile9);
+      formData.append("apiKey", apiKey);
+      const res = await fetch(API_BASE_URL + "/transcribe", {
+        method: "POST",
+        body: formData,
+      });
+      if (!res.ok) {
+        const d = await res.json();
+        setError9(d.error || "Transcription failed");
+        return;
+      }
+      const words = await res.json();
+      if (!words?.length) {
+        setError9("No transcription data received.");
+        return;
+      }
+      setCaptions9(words);
+    } catch (err) {
+      setError9(err.message || "Failed to transcribe video.");
+    } finally {
+      setLoading9(false);
+    }
+  };
+
+  const handleDownload9 = async () => {
+    if (!videoUrl9 || !videoFile9 || !captions9) return;
+    setExporting9(true);
+    setExportProgress9(0);
+    try {
+      const { exportStaircaseImpact } = await import("./videoExport");
+      const outputUrl = await exportStaircaseImpact(
+        videoUrl9,
+        captions9,
+        (pct) => setExportProgress9(pct)
+      );
+      const baseName = videoFile9.name.replace(/\.[^/.]+$/, "");
+      const a = document.createElement("a");
+      a.href = outputUrl;
+      a.download = `${baseName}_migs_visuals.webm`;
+      a.click();
+      URL.revokeObjectURL(outputUrl);
+    } catch (err) {
+      setError9("Export failed: " + err.message);
+    } finally {
+      setExporting9(false);
+      setExportProgress9(0);
+    }
+  };
+
+  // ─── Section 11 handlers ───────────────────────────────────────────────────
+
+  const handleVideoChange11 = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (lastSelectedUrl11Ref.current) URL.revokeObjectURL(lastSelectedUrl11Ref.current);
+      setVideoFile11(file); setError11(null); setCaptions11(null);
+      const url = URL.createObjectURL(file);
+      setVideoUrl11(url); lastSelectedUrl11Ref.current = url;
+      const video = document.createElement("video");
+      video.preload = "metadata";
+      video.onloadedmetadata = () => setVideoDuration11(video.duration);
+      video.src = url;
+    }
+  };
+
+  const handleSubmit11 = async () => {
+    if (!videoFile11 || !apiKey) { setError11("Please upload a video and enter your API key"); return; }
+    setLoading11(true); setError11(null); setCaptions11(null);
+    try {
+      const formData = new FormData();
+      formData.append("video", videoFile11);
+      formData.append("apiKey", apiKey);
+      const res = await fetch(API_BASE_URL + "/transcribe", { method: "POST", body: formData });
+      if (!res.ok) { const d = await res.json(); setError11(d.error || "Transcription failed"); return; }
+      const words = await res.json();
+      if (!words?.length) { setError11("No transcription data received."); return; }
+      setCaptions11(words);
+    } catch (err) { setError11(err.message || "Failed to transcribe video."); }
+    finally { setLoading11(false); }
+  };
+
+  const handleDownload11 = async () => {
+    if (!videoUrl11 || !videoFile11 || !captions11) return;
+    setExporting11(true); setExportProgress11(0);
+    try {
+      alert("Export coming soon for this style.");
+    } catch (err) { setError11("Export failed: " + err.message); }
+    finally { setExporting11(false); setExportProgress11(0); }
+  };
+
+  // ─── Section 12 handlers ───────────────────────────────────────────────────
+
+  const handleVideoChange12 = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (lastSelectedUrl12Ref.current) URL.revokeObjectURL(lastSelectedUrl12Ref.current);
+      setVideoFile12(file); setError12(null); setCaptions12(null); setSpeakerFaceBox12(null); setSpeakerSubjectBox12(null);
+      const url = URL.createObjectURL(file);
+      setVideoUrl12(url); lastSelectedUrl12Ref.current = url;
+      const video = document.createElement("video");
+      video.preload = "metadata";
+      video.onloadedmetadata = () => setVideoDuration12(video.duration);
+      video.src = url;
+    }
+  };
+
+  const handleSubmit12 = async () => {
+    if (!videoFile12 || !apiKey) { setError12("Please upload a video and enter your API key"); return; }
+    setLoading12(true); setError12(null); setCaptions12(null); setSpeakerFaceBox12(null); setSpeakerSubjectBox12(null);
+    try {
+      const formData = new FormData();
+      formData.append("video", videoFile12);
+      formData.append("apiKey", apiKey);
+      const res = await fetch(API_BASE_URL + "/transcribe", { method: "POST", body: formData });
+      if (!res.ok) { const d = await res.json(); setError12(d.error || "Transcription failed"); return; }
+      const words = await res.json();
+      if (!words?.length) { setError12("No transcription data received."); return; }
+      setCaptions12(words);
+
+      // Vision: face region for finale — duplicate video mask only on face (text behind face)
+      try {
+        const dur = videoDuration12 > 0.2
+          ? videoDuration12
+          : Math.max(2, (words[words.length - 1]?.end ?? 3) + 0.5);
+        const midSec = Math.min(Math.max(dur * 0.35, 0.3), dur - 0.12);
+        const label = (words[Math.floor(words.length / 2)]?.word || "speaker").slice(0, 24);
+        const clusters = [{ midTime: midSec, words: [{ _text: label }] }];
+        const frames = await extractClusterFrames(videoUrl12, clusters);
+        const frame0 = frames[0];
+        if (frame0) {
+          const layoutRes = await fetch(`${API_BASE_URL}/analyze-spatial-layout`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              apiKey,
+              clusters: [{ words: [label], frameDataUrl: frame0 }],
+            }),
+          });
+          if (layoutRes.ok) {
+            const data = await layoutRes.json();
+            const c0 = data.clusters?.[0];
+            const face = c0?.faceBox;
+            const sub = c0?.subjectBox;
+            const deriveFaceFromSubject = (s) => ({
+              xPct: Math.min(0.72, Math.max(0.06, s.xPct + s.wPct * 0.18)),
+              yPct: Math.min(0.38, Math.max(0.06, s.yPct + s.hPct * 0.06)),
+              wPct: Math.max(0.22, Math.min(0.52, s.wPct * 0.62)),
+              hPct: Math.max(0.16, Math.min(0.4, s.hPct * 0.38)),
+            });
+            const box = (face && typeof face.xPct === "number")
+              ? face
+              : (sub && typeof sub.xPct === "number" ? deriveFaceFromSubject(sub) : null);
+            if (box) setSpeakerFaceBox12(box);
+            if (sub && typeof sub.xPct === "number") setSpeakerSubjectBox12(sub);
+          }
+        }
+      } catch (e) {
+        console.warn("Retro Signal finale layout (vision):", e);
+      }
+    } catch (err) { setError12(err.message || "Failed to transcribe video."); }
+    finally { setLoading12(false); }
+  };
+
+  const handleDownload12 = async () => {
+    if (!videoUrl12 || !videoFile12 || !captions12) return;
+    setExporting12(true); setExportProgress12(0);
+    try {
+      alert("Export coming soon for this style.");
+    } catch (err) { setError12("Export failed: " + err.message); }
+    finally { setExporting12(false); setExportProgress12(0); }
+  };
+
+  // ─── Section 13 handlers ───────────────────────────────────────────────────
+
+  const handleVideoChange13 = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (lastSelectedUrl13Ref.current) URL.revokeObjectURL(lastSelectedUrl13Ref.current);
+      setVideoFile13(file); setError13(null); setCaptions13(null);
+      const url = URL.createObjectURL(file);
+      setVideoUrl13(url); lastSelectedUrl13Ref.current = url;
+      const video = document.createElement("video");
+      video.preload = "metadata";
+      video.onloadedmetadata = () => setVideoDuration13(video.duration);
+      video.src = url;
+    }
+  };
+
+  const handleSubmit13 = async () => {
+    if (!videoFile13 || !apiKey) { setError13("Please upload a video and enter your API key"); return; }
+    setLoading13(true); setError13(null); setCaptions13(null);
+    try {
+      const formData = new FormData();
+      formData.append("video", videoFile13);
+      formData.append("apiKey", apiKey);
+      const res = await fetch(API_BASE_URL + "/transcribe", { method: "POST", body: formData });
+      if (!res.ok) { const d = await res.json(); setError13(d.error || "Transcription failed"); return; }
+      const words = await res.json();
+      if (!words?.length) { setError13("No transcription data received."); return; }
+      setCaptions13(words);
+    } catch (err) { setError13(err.message || "Failed to transcribe video."); }
+    finally { setLoading13(false); }
+  };
+
+  const handleDownload13 = async () => {
+    setExporting13(true);
+    try { alert("Export coming soon for this style."); }
+    catch (err) { setError13("Export failed: " + err.message); }
+    finally { setExporting13(false); setExportProgress13(0); }
+  };
+
+  // ─── Section 14 handlers ───────────────────────────────────────────────────
+
+  const handleVideoChange14 = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (lastSelectedUrl14Ref.current) URL.revokeObjectURL(lastSelectedUrl14Ref.current);
+      setVideoFile14(file); setError14(null); setCaptions14(null);
+      const url = URL.createObjectURL(file);
+      setVideoUrl14(url); lastSelectedUrl14Ref.current = url;
+      const video = document.createElement("video");
+      video.preload = "metadata";
+      video.onloadedmetadata = () => setVideoDuration14(video.duration);
+      video.src = url;
+    }
+  };
+
+  const handleSubmit14 = async () => {
+    if (!videoFile14 || !apiKey) { setError14("Please upload a video and enter your API key"); return; }
+    setLoading14(true); setError14(null); setCaptions14(null);
+    try {
+      const formData = new FormData();
+      formData.append("video", videoFile14);
+      formData.append("apiKey", apiKey);
+      const res = await fetch(API_BASE_URL + "/transcribe", { method: "POST", body: formData });
+      if (!res.ok) { const d = await res.json(); setError14(d.error || "Transcription failed"); return; }
+      const words = await res.json();
+      if (!words?.length) { setError14("No transcription data received."); return; }
+      setCaptions14(words);
+    } catch (err) { setError14(err.message || "Failed to transcribe video."); }
+    finally { setLoading14(false); }
+  };
+
+  const handleDownload14 = async () => {
+    setExporting14(true);
+    try { alert("Export coming soon for this style."); }
+    catch (err) { setError14("Export failed: " + err.message); }
+    finally { setExporting14(false); setExportProgress14(0); }
+  };
+
+  // ─── Section 15 handlers ───────────────────────────────────────────────────
+
+  const handleVideoChange15 = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (lastSelectedUrl15Ref.current) URL.revokeObjectURL(lastSelectedUrl15Ref.current);
+      setVideoFile15(file); setError15(null); setCaptions15(null);
+      const url = URL.createObjectURL(file);
+      setVideoUrl15(url); lastSelectedUrl15Ref.current = url;
+      const video = document.createElement("video");
+      video.preload = "metadata";
+      video.onloadedmetadata = () => setVideoDuration15(video.duration);
+      video.src = url;
+    }
+  };
+
+  const handleSubmit15 = async () => {
+    if (!videoFile15 || !apiKey) { setError15("Please upload a video and enter your API key"); return; }
+    setLoading15(true); setError15(null); setCaptions15(null);
+    try {
+      const formData = new FormData();
+      formData.append("video", videoFile15);
+      formData.append("apiKey", apiKey);
+      const res = await fetch(API_BASE_URL + "/transcribe", { method: "POST", body: formData });
+      if (!res.ok) { const d = await res.json(); setError15(d.error || "Transcription failed"); return; }
+      const words = await res.json();
+      if (!words?.length) { setError15("No transcription data received."); return; }
+      setCaptions15(words);
+    } catch (err) { setError15(err.message || "Failed to transcribe video."); }
+    finally { setLoading15(false); }
+  };
+
+  const handleDownload15 = async () => {
+    setExporting15(true);
+    try { alert("Export coming soon for this style."); }
+    catch (err) { setError15("Export failed: " + err.message); }
+    finally { setExporting15(false); setExportProgress15(0); }
+  };
+
   const handleGenerateForStyle = (styleId) => {
     if (styleId === "simple-readable") {
       handleSubmit();
@@ -887,6 +1380,22 @@ function App() {
       handleSubmit7();
     } else if (styleId === "staircase-impact") {
       handleSubmit8();
+    } else if (styleId === "migs-visuals") {
+      handleSubmit9();
+    } else if (styleId === "sketchbook-overlay") {
+      handleSubmit10();
+    } else if (styleId === "depth-reveal") {
+      handleSubmit10();
+    } else if (styleId === "neon-bloom") {
+      handleSubmit11();
+    } else if (styleId === "retro-signal") {
+      handleSubmit12();
+    } else if (styleId === "cozy-handwritten") {
+      handleSubmit13();
+    } else if (styleId === "editorial-serif") {
+      handleSubmit14();
+    } else if (styleId === "paper-cutout") {
+      handleSubmit15();
     }
   };
 
@@ -1582,6 +2091,437 @@ function App() {
           ) : (
             <div className="style-empty">
               Upload a video and generate captions to preview this style.
+            </div>
+          )}
+        </div>
+
+        {/* Section 10: 3D Depth Reveal */}
+        <div className="style-section">
+          <div className="style-section-header">
+            <span className="style-badge">10</span>
+            <div>
+              <h2 className="style-title">3D Depth Reveal</h2>
+              <p className="style-desc">
+                Small Montserrat context words appear word-by-word above a HUGE italic hero word that flips up from below using CSS 3D perspective (rotateX 28° → 0°). The hero word cycles through a muted palette of sage teal, slate blue, warm sand, soft purple, and mint — giving each phrase a cinematic depth-reveal feel.
+              </p>
+            </div>
+          </div>
+
+          <div className="input-group" style={{ marginBottom: "16px" }}>
+            <label htmlFor="video-upload-10">Video File (vertical)</label>
+            <input
+              id="video-upload-10"
+              type="file"
+              accept="video/mp4,video/mpeg,video/webm,video/x-m4v,video/quicktime"
+              onChange={handleVideoChange10}
+              disabled={loading10}
+            />
+            {videoFile10 && <span className="file-name">{videoFile10.name}</span>}
+            <span className="hint">Supported formats: MP4, MOV, WEBM</span>
+          </div>
+
+          {error10 && (
+            <div className="error-message" style={{ marginBottom: "16px" }}>
+              <strong>Error:</strong> {error10}
+            </div>
+          )}
+
+          {loading10 && (
+            <div className="loading-message" style={{ marginBottom: "16px" }}>
+              <div className="spinner"></div>
+              <p>Transcribing your video with Whisper API...</p>
+            </div>
+          )}
+
+          <div className="style-actions">
+            <button
+              onClick={() => handleGenerateForStyle("sketchbook-overlay")}
+              disabled={!videoFile10 || !apiKey || loading10}
+              className="generate-btn style-generate-btn"
+            >
+              {loading10 ? "Transcribing..." : "Generate Captions"}
+            </button>
+          </div>
+
+          {captions10 && videoUrl10 ? (
+            <>
+              <CaptionVideo10Player
+                videoSrc={videoUrl10}
+                transcription={captions10}
+                durationInFrames={Math.ceil(videoDuration10 * 30)}
+              />
+              <div className="download-row">
+                <button
+                  className="download-btn"
+                  onClick={handleDownload10}
+                  disabled={exporting10}
+                >
+                  {exporting10
+                    ? `Exporting… ${exportProgress10}%`
+                    : "Download Video with Captions"}
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="style-empty">
+              Upload a vertical video and generate captions to preview this style.
+            </div>
+          )}
+        </div>
+
+        {/* Section 9: migs.visuals Dynamic */}
+        <div className="style-section">
+          <div className="style-section-header">
+            <span className="style-badge">9</span>
+            <div>
+              <h2 className="style-title">migs.visuals Dynamic</h2>
+              <p className="style-desc">
+                Word-by-word spring pop-in with filler/emphasis sizing, two-tier phrase stacking, gold glow on phrase-ending keywords, chromatic aberration glitch effect, and cycling Y-position layout — inspired by the migs.visuals caption style.
+              </p>
+            </div>
+          </div>
+
+          <div className="input-group" style={{ marginBottom: "16px" }}>
+            <label htmlFor="video-upload-9">Video File (vertical, 13–20s)</label>
+            <input
+              id="video-upload-9"
+              type="file"
+              accept="video/mp4,video/mpeg,video/webm,video/x-m4v,video/quicktime"
+              onChange={handleVideoChange9}
+              disabled={loading9}
+            />
+            {videoFile9 && <span className="file-name">{videoFile9.name}</span>}
+            <span className="hint">Supported formats: MP4, MOV, WEBM</span>
+          </div>
+
+          {error9 && (
+            <div className="error-message" style={{ marginBottom: "16px" }}>
+              <strong>Error:</strong> {error9}
+            </div>
+          )}
+
+          {loading9 && (
+            <div className="loading-message" style={{ marginBottom: "16px" }}>
+              <div className="spinner"></div>
+              <p>Transcribing your video with Whisper API...</p>
+            </div>
+          )}
+
+          <div className="style-actions">
+            <button
+              onClick={() => handleGenerateForStyle("migs-visuals")}
+              disabled={!videoFile9 || !apiKey || loading9}
+              className="generate-btn style-generate-btn"
+            >
+              {loading9 ? "Transcribing..." : "Generate Captions"}
+            </button>
+          </div>
+
+          {captions9 && videoUrl9 ? (
+            <>
+              <CaptionVideo9Player
+                videoSrc={videoUrl9}
+                transcription={captions9}
+                durationInFrames={Math.ceil(videoDuration9 * 30)}
+              />
+              <div className="download-row">
+                <button
+                  className="download-btn"
+                  onClick={handleDownload9}
+                  disabled={exporting9}
+                >
+                  {exporting9
+                    ? `Exporting… ${exportProgress9}%`
+                    : "Download Video with Captions"}
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="style-empty">
+              Upload a vertical video (13–20s) and generate captions to preview this style.
+            </div>
+          )}
+        </div>
+
+        {/* Section 11: Neon Bloom */}
+        <div className="style-section">
+          <div className="style-section-header">
+            <span className="style-badge">11</span>
+            <div>
+              <h2 className="style-title">Neon Bloom</h2>
+              <p className="style-desc">
+                Small italic context words float above a MASSIVE neon orange/gold hero word. Each key word explodes in with a spring bounce, surrounded by layered glow bloom — inspired by viral creator caption styles.
+              </p>
+            </div>
+          </div>
+          <div className="input-group" style={{ marginBottom: "16px" }}>
+            <label htmlFor="video-upload-11">Video File (vertical)</label>
+            <input
+              id="video-upload-11"
+              type="file"
+              accept="video/mp4,video/mpeg,video/webm,video/x-m4v,video/quicktime"
+              onChange={handleVideoChange11}
+              disabled={loading11}
+            />
+            {videoFile11 && <span className="file-name">{videoFile11.name}</span>}
+            <span className="hint">Supported formats: MP4, MOV, WEBM</span>
+          </div>
+          {error11 && (
+            <div className="error-message" style={{ marginBottom: "16px" }}>
+              <strong>Error:</strong> {error11}
+            </div>
+          )}
+          {loading11 && (
+            <div className="loading-message" style={{ marginBottom: "16px" }}>
+              <div className="spinner"></div>
+              <p>Transcribing your video with Whisper API...</p>
+            </div>
+          )}
+          <div className="style-actions">
+            <button
+              onClick={() => handleGenerateForStyle("neon-bloom")}
+              disabled={!videoFile11 || !apiKey || loading11}
+              className="generate-btn style-generate-btn"
+            >
+              {loading11 ? "Transcribing..." : "Generate Captions"}
+            </button>
+          </div>
+          {captions11 && videoUrl11 ? (
+            <>
+              <CaptionVideo11Player
+                videoSrc={videoUrl11}
+                transcription={captions11}
+                durationInFrames={Math.ceil(videoDuration11 * 30)}
+              />
+              <div className="download-row">
+                <button
+                  className="download-btn"
+                  onClick={handleDownload11}
+                  disabled={exporting11}
+                >
+                  {exporting11 ? `Exporting… ${exportProgress11}%` : "Download Video with Captions"}
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="style-empty">
+              Upload a vertical video and generate captions to preview this style.
+            </div>
+          )}
+        </div>
+
+        {/* Section 12: Retro Signal */}
+        <div className="style-section">
+          <div className="style-section-header">
+            <span className="style-badge">12</span>
+            <div>
+              <h2 className="style-title">Retro Signal</h2>
+              <p className="style-desc">
+                Huge italic yellow-green text with horizontal scanline TV effect. Content words blast in UPPERCASE at full brightness; filler words appear dimmer. The whole block has a cinematic 3D perspective tilt — like a retro broadcast screen.
+              </p>
+            </div>
+          </div>
+          <div className="input-group" style={{ marginBottom: "16px" }}>
+            <label htmlFor="video-upload-12">Video File (vertical)</label>
+            <input
+              id="video-upload-12"
+              type="file"
+              accept="video/mp4,video/mpeg,video/webm,video/x-m4v,video/quicktime"
+              onChange={handleVideoChange12}
+              disabled={loading12}
+            />
+            {videoFile12 && <span className="file-name">{videoFile12.name}</span>}
+            <span className="hint">Supported formats: MP4, MOV, WEBM</span>
+          </div>
+          {error12 && (
+            <div className="error-message" style={{ marginBottom: "16px" }}>
+              <strong>Error:</strong> {error12}
+            </div>
+          )}
+          {loading12 && (
+            <div className="loading-message" style={{ marginBottom: "16px" }}>
+              <div className="spinner"></div>
+              <p>Transcribing your video with Whisper API...</p>
+            </div>
+          )}
+          <div className="style-actions">
+            <button
+              onClick={() => handleGenerateForStyle("retro-signal")}
+              disabled={!videoFile12 || !apiKey || loading12}
+              className="generate-btn style-generate-btn"
+            >
+              {loading12 ? "Transcribing..." : "Generate Captions"}
+            </button>
+          </div>
+          {captions12 && videoUrl12 ? (
+            <>
+              <CaptionVideo12Player
+                videoSrc={videoUrl12}
+                transcription={captions12}
+                durationInFrames={Math.ceil(videoDuration12 * 30)}
+                speakerFaceBox={speakerFaceBox12}
+                speakerSubjectBox={speakerSubjectBox12}
+              />
+              <div className="download-row">
+                <button
+                  className="download-btn"
+                  onClick={handleDownload12}
+                  disabled={exporting12}
+                >
+                  {exporting12 ? `Exporting… ${exportProgress12}%` : "Download Video with Captions"}
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="style-empty">
+              Upload a vertical video and generate captions to preview this style.
+            </div>
+          )}
+        </div>
+
+        {/* Section 13: Cozy Handwritten */}
+        <div className="style-section">
+          <div className="style-section-header">
+            <span className="style-badge">13</span>
+            <div>
+              <h2 className="style-title">Cozy Handwritten</h2>
+              <p className="style-desc">
+                A warm, casual handwritten caption style (Caveat font, creamy #F5ECD5 color) with a special intro: the video's topic word appears inside a hand-drawn wobbly ellipse at the center of the screen for 3–4 seconds, then fades away as the regular captions begin.
+              </p>
+            </div>
+          </div>
+          <div className="input-group" style={{ marginBottom: "16px" }}>
+            <label htmlFor="video-upload-13">Video File (vertical)</label>
+            <input id="video-upload-13" type="file" accept="video/mp4,video/mpeg,video/webm,video/x-m4v,video/quicktime" onChange={handleVideoChange13} disabled={loading13} />
+            {videoFile13 && <span className="file-name">{videoFile13.name}</span>}
+            <span className="hint">Supported formats: MP4, MOV, WEBM</span>
+          </div>
+          {error13 && <div className="error-message" style={{ marginBottom:"16px" }}><strong>Error:</strong> {error13}</div>}
+          {loading13 && <div className="loading-message" style={{ marginBottom:"16px" }}><div className="spinner"></div><p>Transcribing your video with Whisper API...</p></div>}
+          <div className="style-actions">
+            <button onClick={() => handleGenerateForStyle("cozy-handwritten")} disabled={!videoFile13 || !apiKey || loading13} className="generate-btn style-generate-btn">
+              {loading13 ? "Transcribing..." : "Generate Captions"}
+            </button>
+          </div>
+          {captions13 && videoUrl13 ? (
+            <>
+              <CaptionVideo13Player videoSrc={videoUrl13} transcription={captions13} durationInFrames={Math.ceil(videoDuration13 * 30)} />
+              <div className="download-row">
+                <button className="download-btn" onClick={handleDownload13} disabled={exporting13}>
+                  {exporting13 ? `Exporting… ${exportProgress13}%` : "Download Video with Captions"}
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="style-empty">Upload a vertical video and generate captions to preview this style.</div>
+          )}
+        </div>
+
+        {/* Section 14: Editorial Serif */}
+        <div className="style-section">
+          <div className="style-section-header">
+            <span className="style-badge">14</span>
+            <div>
+              <h2 className="style-title">Editorial Serif</h2>
+              <p className="style-desc">
+                Elegant mixed-size Playfair Display captions. Small context words float above a MASSIVE italic serif hero word — all in pure white with a gentle fade-in. Inspired by high-end editorial video content.
+              </p>
+            </div>
+          </div>
+          <div className="input-group" style={{ marginBottom: "16px" }}>
+            <label htmlFor="video-upload-14">Video File (vertical)</label>
+            <input id="video-upload-14" type="file" accept="video/mp4,video/mpeg,video/webm,video/x-m4v,video/quicktime" onChange={handleVideoChange14} disabled={loading14} />
+            {videoFile14 && <span className="file-name">{videoFile14.name}</span>}
+            <span className="hint">Supported formats: MP4, MOV, WEBM</span>
+          </div>
+          {error14 && <div className="error-message" style={{ marginBottom:"16px" }}><strong>Error:</strong> {error14}</div>}
+          {loading14 && <div className="loading-message" style={{ marginBottom:"16px" }}><div className="spinner"></div><p>Transcribing your video with Whisper API...</p></div>}
+          <div className="style-actions">
+            <button onClick={() => handleGenerateForStyle("editorial-serif")} disabled={!videoFile14 || !apiKey || loading14} className="generate-btn style-generate-btn">
+              {loading14 ? "Transcribing..." : "Generate Captions"}
+            </button>
+          </div>
+          {captions14 && videoUrl14 ? (
+            <>
+              <CaptionVideo14Player videoSrc={videoUrl14} transcription={captions14} durationInFrames={Math.ceil(videoDuration14 * 30)} />
+              <div className="download-row">
+                <button className="download-btn" onClick={handleDownload14} disabled={exporting14}>
+                  {exporting14 ? `Exporting… ${exportProgress14}%` : "Download Video with Captions"}
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="style-empty">Upload a vertical video and generate captions to preview this style.</div>
+          )}
+        </div>
+
+        {/* Section 15: Scrappy Paper Cutouts */}
+        <div className="style-section">
+          <div className="style-section-header">
+            <span className="style-badge">15</span>
+            <div>
+              <h2 className="style-title">Scrappy Paper Cutouts</h2>
+              <p className="style-desc">
+                Each word lands on a hand-cut paper scrap in rose, sage, forest green, chocolate,
+                gold, or beige — cut with "scissors" (irregular clip-path edges), tossed onto the
+                frame one by one. Each piece flies in with a 3D perspective flip + spring-bounce
+                landing, casts a soft shadow, and rests at a random tilt. Wes Anderson meets
+                high-end scrapbook editorial.
+              </p>
+            </div>
+          </div>
+          <div className="input-group" style={{ marginBottom: "16px" }}>
+            <label htmlFor="video-upload-15">Video File (vertical)</label>
+            <input
+              id="video-upload-15"
+              type="file"
+              accept="video/mp4,video/mpeg,video/webm,video/x-m4v,video/quicktime"
+              onChange={handleVideoChange15}
+              disabled={loading15}
+            />
+            {videoFile15 && <span className="file-name">{videoFile15.name}</span>}
+            <span className="hint">Supported formats: MP4, MOV, WEBM</span>
+          </div>
+          {error15 && (
+            <div className="error-message" style={{ marginBottom: "16px" }}>
+              <strong>Error:</strong> {error15}
+            </div>
+          )}
+          {loading15 && (
+            <div className="loading-message" style={{ marginBottom: "16px" }}>
+              <div className="spinner"></div>
+              <p>Transcribing your video with Whisper API...</p>
+            </div>
+          )}
+          <div className="style-actions">
+            <button
+              onClick={() => handleGenerateForStyle("paper-cutout")}
+              disabled={!videoFile15 || !apiKey || loading15}
+              className="generate-btn style-generate-btn"
+            >
+              {loading15 ? "Transcribing..." : "Generate Captions"}
+            </button>
+          </div>
+          {captions15 && videoUrl15 ? (
+            <>
+              <CaptionVideo15Player
+                videoSrc={videoUrl15}
+                transcription={captions15}
+                durationInFrames={Math.ceil(videoDuration15 * 30)}
+              />
+              <div className="download-row">
+                <button
+                  className="download-btn"
+                  onClick={handleDownload15}
+                  disabled={exporting15}
+                >
+                  {exporting15 ? `Exporting… ${exportProgress15}%` : "Download Video with Captions"}
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="style-empty">
+              Upload a vertical video and generate captions to preview this style.
             </div>
           )}
         </div>

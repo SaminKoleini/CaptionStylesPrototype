@@ -9,10 +9,13 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "node server/index.js",
-    "server": "node server/index.js"
+    "server": "node server/index.js",
+    "studio": "remotion studio src/remotion/index.jsx"
   },
   "dependencies": {
+    "@remotion/google-fonts": "^4.0.448",
     "@remotion/player": "^4.0.446",
+    "@remotion/transitions": "^4.0.448",
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "multer": "^2.1.1",
@@ -23,6 +26,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@remotion/cli": "^4.0.446",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
